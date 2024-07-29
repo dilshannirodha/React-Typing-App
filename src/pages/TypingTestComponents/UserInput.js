@@ -2,9 +2,8 @@ import  {  useContext, useEffect} from 'react';
 import {GetValuesContext}  from '../../context/GetValuesContext';
 
 const UserInput = () => {
-  useEffect(() => {
-    if(inputRef.current) inputRef.current.focus();
-  },[])
+ 
+
   const {userInput, setUserInput,
         start, setStart,
         displayedWords, 
@@ -19,6 +18,11 @@ const UserInput = () => {
         setResults,selectedOption,setFinishTime,
        setTimeLeft,selectedTime , charCount,setTimeCount 
        } = useContext(GetValuesContext);
+
+       useEffect(() => {
+        if(inputRef.current) inputRef.current.focus();
+      })
+    
 
     const handleReset = () =>{
       setStart(false);

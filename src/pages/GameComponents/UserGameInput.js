@@ -1,4 +1,4 @@
-import react, { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import { GetValuesContext } from '../../context/GetValuesContext'
 
 
@@ -14,7 +14,7 @@ const UserGameInput = () => {
 
     useEffect(() =>{
         if(gameInput.current) gameInput.current.focus();
-    },[])
+    })
 
     useEffect(() => {
       if (index !== 0) {

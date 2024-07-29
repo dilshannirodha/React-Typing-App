@@ -6,7 +6,6 @@ import Icon from "../assets/keyboard.svg";
 
 const NavBar = () => {
 
-
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
     const [isUserDropdownOpen, setIsUserDropdownOpen] = useState(false);
   
@@ -29,7 +28,7 @@ const NavBar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <NavLink to="/">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src={Icon} className="h-8"  alt="app logo"/>
+              <img src={Icon} className="h-8"  alt=""/>
               <span className="self-center text-blue-700 text-2xl font-semibold whitespace-nowrap dark:text-white">KeyMaster</span>
             </div>
           </NavLink>
