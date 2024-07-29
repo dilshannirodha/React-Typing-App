@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.css": "/deploy-react-typing-app/static/css/main.ecf6f4f5.css",
+    "main.js": "/deploy-react-typing-app/static/js/main.454a15ce.js",
+    "static/js/453.23c1b117.chunk.js": "/deploy-react-typing-app/static/js/453.23c1b117.chunk.js",
+    "static/media/keyboard.svg": "/deploy-react-typing-app/static/media/keyboard.bcdae29f8df2ca222b239df9c5d9a5a6.svg",
+    "static/media/5000words.txt": "/deploy-react-typing-app/static/media/5000words.a776201c4c3c1a8a0d5f.txt",
+    "static/media/1000words.txt": "/deploy-react-typing-app/static/media/1000words.bc5e1895fc5955ace000.txt",
+    "static/media/200words.txt": "/deploy-react-typing-app/static/media/200words.0d4caf093bc221b9c3c1.txt",
+    "index.html": "/deploy-react-typing-app/index.html",
+    "main.ecf6f4f5.css.map": "/deploy-react-typing-app/static/css/main.ecf6f4f5.css.map",
+    "main.454a15ce.js.map": "/deploy-react-typing-app/static/js/main.454a15ce.js.map",
+    "453.23c1b117.chunk.js.map": "/deploy-react-typing-app/static/js/453.23c1b117.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.ecf6f4f5.css",
+    "static/js/main.454a15ce.js"
+  ]
+}
