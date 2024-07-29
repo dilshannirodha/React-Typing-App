@@ -4,7 +4,7 @@ import {GetValuesContext}  from '../../context/GetValuesContext';
 const UserInput = () => {
   useEffect(() => {
     if(inputRef.current) inputRef.current.focus();
-  },[])
+  })
   const {userInput, setUserInput,
         start, setStart,
         displayedWords, 

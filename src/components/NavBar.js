@@ -29,7 +29,7 @@ const NavBar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <NavLink to="/">
             <div className="flex items-center space-x-3 rtl:space-x-reverse">
-              <img src={Icon} className="h-8"  alt="app logo"/>
+              <img src={Icon} className="h-8"  alt="app-logo"/>
               <span className="self-center text-blue-700 text-2xl font-semibold whitespace-nowrap dark:text-white">KeyMaster</span>
             </div>
           </NavLink>
@@ -44,7 +44,7 @@ const NavBar = () => {
               onClick={toggleUserDropdown}
             >
               <span className="sr-only">Open user menu</span>
-              <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="user photo" />
+              <img className="w-10 h-10 rounded-full" src="/docs/images/people/profile-picture-3.jpg" alt="" />
             </button>
             
             <button
