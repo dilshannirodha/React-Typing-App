@@ -19,8 +19,8 @@ function App() {
       
          <NavBar />
         <Routes>
-          <Route path='/' element={<TypingTest />} />
-          <Route path='/TypingTest' element={<TypingTest />} />
+          <Route path='/' exact element={<TypingTest />} />
+          <Route path='/TypingTest' exact element={<TypingTest />} />
           <Route path='/TypingGame' element={<TypingGame />} />
           <Route path='/Multiplayer' element={<Multiplayer />} />
         </Routes>
