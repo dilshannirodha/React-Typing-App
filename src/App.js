@@ -1,4 +1,4 @@
-
+ 
 import {BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import  TypingTest  from './pages/TypingTest'
 import  TypingGame  from './pages/TypingGame'
@@ -17,7 +17,7 @@ function App() {
      
       <Router>
       
-         <NavBar />
+         <NavBar /> 
         <Routes>
           <Route path='/' exact element={<TypingTest />} />
           <Route path='/TypingTest' exact element={<TypingTest />} />
