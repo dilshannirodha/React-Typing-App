@@ -5,36 +5,26 @@
     "version": "1.0"
   },
   "paths": {
-    "/api/TypingText": {
-      "get": {
-        "tags": [
-          "TypingText"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/api/Auth/register": {
       "post": {
         "tags": [
-          "TypingText"
+          "Auth"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/TypingTextDto"
+                "$ref": "#/components/schemas/UserSaveDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/TypingTextDto"
+                "$ref": "#/components/schemas/UserSaveDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/TypingTextDto"
+                "$ref": "#/components/schemas/UserSaveDto"
               }
             }
           }
@@ -46,36 +36,26 @@
         }
       }
     },
-    "/api/User": {
-      "get": {
-        "tags": [
-          "User"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
+    "/api/Auth/login": {
       "post": {
         "tags": [
-          "User"
+          "Auth"
         ],
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserDto"
+                "$ref": "#/components/schemas/LoginDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserDto"
+                "$ref": "#/components/schemas/LoginDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserDto"
+                "$ref": "#/components/schemas/LoginDto"
               }
             }
           }
@@ -86,25 +66,96 @@
           }
         }
       }
+    },
+    "/api/Text/save": {
+      "post": {
+        "tags": [
+          "Text"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveTextDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveTextDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/SaveTextDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Text/user-texts/{email}": {
+      "get": {
+        "tags": [
+          "Text"
+        ],
+        "parameters": [
+          {
+            "name": "email",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
     }
   },
   "components": {
     "schemas": {
-      "TypingTextDto": {
+      "LoginDto": {
         "type": "object",
         "properties": {
-          "textType": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "text": {
+          "password": {
             "type": "string",
             "nullable": true
           }
         },
         "additionalProperties": false
       },
-      "UserDto": {
+      "SaveTextDto": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "textName": {
+            "type": "string",
+            "nullable": true
+          },
+          "textData": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserSaveDto": {
         "type": "object",
         "properties": {
           "userName": {
@@ -118,10 +169,6 @@
           "password": {
             "type": "string",
             "nullable": true
-          },
-          "maxWpm": {
-            "type": "integer",
-            "format": "int32"
           }
         },
         "additionalProperties": false

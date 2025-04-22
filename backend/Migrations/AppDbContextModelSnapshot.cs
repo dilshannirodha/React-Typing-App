@@ -21,25 +21,23 @@ namespace TypingApp.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("TypingApp.Models.Domain.TypingText", b =>
+            modelBuilder.Entity("TypingApp.Models.Domain.Text", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
+                    b.Property<string>("TextName")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("TextData")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.HasKey("TextName");
 
-                    b.Property<string>("Text")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.HasIndex("UserId");
 
-                    b.Property<string>("TextType")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("TypingTexts");
+                    b.ToTable("Texts");
                 });
 
             modelBuilder.Entity("TypingApp.Models.Domain.User", b =>
@@ -54,9 +52,6 @@ namespace TypingApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("MaxWpm")
-                        .HasColumnType("int");
-
                     b.Property<string>("Password")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -68,6 +63,22 @@ namespace TypingApp.Migrations
                     b.HasKey("UserId");
 
                     b.ToTable("Users");
+                });
+
+            modelBuilder.Entity("TypingApp.Models.Domain.Text", b =>
+                {
+                    b.HasOne("TypingApp.Models.Domain.User", "User")
+                        .WithMany("Texts")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("User");
+                });
+
+            modelBuilder.Entity("TypingApp.Models.Domain.User", b =>
+                {
+                    b.Navigation("Texts");
                 });
 #pragma warning restore 612, 618
         }

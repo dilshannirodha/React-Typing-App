@@ -1,51 +1,63 @@
 [
   {
-    "ContainingType": "TypingApp.Controllers.TypingTextController",
-    "Method": "GetTexts",
-    "RelativePath": "api/TypingText",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TypingApp.Controllers.TypingTextController",
-    "Method": "AddText",
-    "RelativePath": "api/TypingText",
+    "ContainingType": "TypingApp.Controllers.AuthController",
+    "Method": "Login",
+    "RelativePath": "api/Auth/login",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "TypingApp.Models.DTO.TypingTextDto",
+        "Name": "loginDto",
+        "Type": "TypingApp.Models.DTO.Request.LoginDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "TypingApp.Controllers.UserController",
-    "Method": "GetUsers",
-    "RelativePath": "api/User",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "TypingApp.Controllers.UserController",
+    "ContainingType": "TypingApp.Controllers.AuthController",
     "Method": "CreateUser",
-    "RelativePath": "api/User",
+    "RelativePath": "api/Auth/register",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "dto",
-        "Type": "TypingApp.Models.DTO.UserDto",
+        "Name": "userSaveDto",
+        "Type": "TypingApp.Models.DTO.Request.UserSaveDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TypingApp.Controllers.TextController",
+    "Method": "save",
+    "RelativePath": "api/Text/save",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "saveTextDto",
+        "Type": "TypingApp.Models.DTO.Request.SaveTextDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "TypingApp.Controllers.TextController",
+    "Method": "getAll",
+    "RelativePath": "api/Text/user-texts/{email}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "email",
+        "Type": "System.String",
         "IsRequired": true
       }
     ],

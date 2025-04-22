@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using TypingApp.Models.Domain;
 using TypingApp.Models.DTO;
+using TypingApp.Models.DTO.Request;
+using TypingApp.Models.DTO.Response;
 
 namespace TypingApp.Mappings
 {
@@ -8,8 +10,11 @@ namespace TypingApp.Mappings
     {
         public AutomaperProfile() 
         {
-            CreateMap<User, UserDto>().ReverseMap();
-            CreateMap<TypingText, TypingTextDto>().ReverseMap();
+            CreateMap<UserSaveDto, User>();
+            CreateMap<User, UserSaveDto>();
+            CreateMap<Text, TextResponseDto>();
+
+
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\github projects\\typing-app\\TypingApp\\TypingApp.csproj": {}
+    "D:\\github projects\\React-Typing-App\\backend\\TypingApp.csproj": {}
   },
   "projects": {
-    "D:\\github projects\\typing-app\\TypingApp\\TypingApp.csproj": {
+    "D:\\github projects\\React-Typing-App\\backend\\TypingApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\github projects\\typing-app\\TypingApp\\TypingApp.csproj",
+        "projectUniqueName": "D:\\github projects\\React-Typing-App\\backend\\TypingApp.csproj",
         "projectName": "TypingApp",
-        "projectPath": "D:\\github projects\\typing-app\\TypingApp\\TypingApp.csproj",
+        "projectPath": "D:\\github projects\\React-Typing-App\\backend\\TypingApp.csproj",
         "packagesPath": "C:\\Users\\dilshan\\.nuget\\packages\\",
-        "outputPath": "D:\\github projects\\typing-app\\TypingApp\\obj\\",
+        "outputPath": "D:\\github projects\\React-Typing-App\\backend\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -58,6 +58,14 @@
               "target": "Package",
               "version": "[12.0.1, )"
             },
+            "BCrypt.Net-Next": {
+              "target": "Package",
+              "version": "[4.0.2, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[8.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[8.0.15, )"
@@ -75,6 +83,10 @@
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.6.2, )"
+            },
+            "System.IdentityModel.Tokens.Jwt": {
+              "target": "Package",
+              "version": "[7.0.3, )"
             }
           },
           "imports": [
