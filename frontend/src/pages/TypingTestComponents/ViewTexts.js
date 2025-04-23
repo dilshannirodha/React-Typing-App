@@ -1,51 +1,60 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
+import { GetValuesContext } from '../../context/GetValuesContext';
 
 const ViewTexts = () => {
-  const [texts, setTexts] = useState([]); // State to store the texts
-  const [loading, setLoading] = useState(true); // Loading state to show loading spinner
+  const [texts, setTexts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const { setDisplayedWords, setShowTexts, setDisplayedGameWords } = useContext(GetValuesContext); // ✅ useContext here
 
-  // Function to fetch texts from the backend
-  const fetchTexts = async () => {
-    try {
-      const email = localStorage.getItem('email');
-      const response = await axios.get(`http://localhost:5000/api/text/user-texts/${email}`);
-
-      setTexts(response.data); // Set the fetched texts into state
-      setLoading(false); // Set loading to false after data is fetched
-    } catch (error) {
-      console.error('Error fetching texts:', error);
-      setLoading(false); // Set loading to false in case of an error
-    }
-  };
-
-  // Fetch texts when the component mounts
   useEffect(() => {
+    const fetchTexts = async () => {
+      try {
+        const email = localStorage.getItem('email');
+        const response = await axios.get(`http://localhost:5000/api/text/user-texts/${email}`);
+        setTexts(response.data);
+        setLoading(false);
+      } catch (error) {
+        console.error('Error fetching texts:', error);
+        setLoading(false);
+      }
+    };
+
     fetchTexts();
   }, []);
+
+  const handleTextClick = (textData) => {
+    const wordsArray = textData.trim().split(' ');
+    setDisplayedWords(wordsArray);
+    setDisplayedGameWords(wordsArray);
+    setShowTexts(false); 
+  };
 
   return (
     <div className="p-4">
       <h2 className="text-2xl font-semibold mb-4">Your Saved Texts</h2>
 
       {loading ? (
-        <div className="text-gray-600">Loading...</div> // Show loading message
+        <div className="text-gray-600">Loading...</div>
       ) : (
         <div className="mt-4">
-          <h3 className="text-lg font-medium">Saved Texts:</h3>
-          {texts.length > 0 ? (
-            <button>
- 
-              {texts.map((text, index) => (
-                <span key={index}>{text.textName}</span>  
-              ))}
-            
-
-            </button>
-           
-          ) : (
-            <div className="text-gray-600">No saved texts found.</div> 
-          )}
+          <h3 className="text-lg font-medium mb-2">Saved Texts:</h3>
+          <div className="flex flex-wrap gap-2">
+            {texts.length > 0 ? (
+              texts.map((text, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleTextClick(text.textData)}
+                  className="px-3 py-1 text-sm font-medium text-white bg-blue-600 rounded hover:bg-blue-700 focus:outline-none"
+                >
+                  {text.textName}
+                  
+                </button>
+              ))
+            ) : (
+              <div className="text-gray-600">No saved texts found.</div>
+            )}
+          </div>
         </div>
       )}
     </div>

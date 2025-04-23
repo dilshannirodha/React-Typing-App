@@ -58,6 +58,7 @@ const GetValuesProvider = ({ children }) => {
     const gameInput = useRef(null);
     const [gameResults, setGameResults] = useState(false);
     const [win, setWin] = useState(false);
+    const [showTexts, setShowTexts] = useState(false); 
 
     const values = {
         containerWidth, setContainerWidth,
@@ -107,7 +108,8 @@ const GetValuesProvider = ({ children }) => {
          checkGameWord, setCheckGameWord,
          gameCharCount,setGameCharCount,
          gameInput, gameResults, setGameResults,
-         win, setWin
+         win, setWin,
+         showTexts, setShowTexts
 
       };
 

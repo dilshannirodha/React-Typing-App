@@ -1,12 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const User = ({ isUserDropdownOpen }) => {
   const [view, setView] = useState('menu'); // 'menu' | 'signin' | 'signup'
-
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [message, setMessage] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const storedEmail = localStorage.getItem('email');
+    if (storedEmail) setIsLoggedIn(true);
+  }, []);
 
   const handleLogin = async () => {
     try {
@@ -21,9 +26,9 @@ const User = ({ isUserDropdownOpen }) => {
 
       if (response.ok) {
         setMessage('Login successful!');
+        localStorage.setItem('email', data.email);
+        setIsLoggedIn(true);
         setView('menu');
-       
-        localStorage.setItem('email',data.email);// You might want to store this in localStorage
       } else {
         setMessage(data.message || 'Login failed.');
       }
@@ -54,6 +59,12 @@ const User = ({ isUserDropdownOpen }) => {
       setMessage('Error registering.');
       console.error(error);
     }
+  };
+
+  const handleSignOut = () => {
+    localStorage.removeItem('email');
+    setIsLoggedIn(false);
+    setView('menu');
   };
 
   const renderContent = () => {
@@ -119,22 +130,35 @@ const User = ({ isUserDropdownOpen }) => {
                 <span className="ml-3">Dashboard</span>
               </a>
             </li>
-            <li>
-              <button
-                onClick={() => setView('signin')}
-                className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
-                <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
-              </button>
-            </li>
-            <li>
-              <button
-                onClick={() => setView('signup')}
-                className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
-              >
-                <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
-              </button>
-            </li>
+            {!isLoggedIn ? (
+              <>
+                <li>
+                  <button
+                    onClick={() => setView('signin')}
+                    className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                  >
+                    <span className="flex-1 ms-3 whitespace-nowrap">Sign In</span>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    onClick={() => setView('signup')}
+                    className="flex items-center w-full p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 group"
+                  >
+                    <span className="flex-1 ms-3 whitespace-nowrap">Sign Up</span>
+                  </button>
+                </li>
+              </>
+            ) : (
+              <li>
+                <button
+                  onClick={handleSignOut}
+                  className="flex items-center w-full p-2 text-red-600 rounded-lg hover:bg-red-100 dark:hover:bg-gray-700"
+                >
+                  <span className="flex-1 ms-3 whitespace-nowrap">Sign Out</span>
+                </button>
+              </li>
+            )}
           </ul>
         );
     }
