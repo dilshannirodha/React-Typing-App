@@ -20,7 +20,7 @@ This app also includes a `.NET Web API` backend for user performance tracking an
 
 ## 🎮 Live Demo
 
-🔗 [Try it now on GitHub Pages](https://dilshannirodha.github.io/deploy-react-typing-game/)
+🔗 [Try it now on GitHub Pages](🔗 https://dilshannirodha.github.io/deploy-react-typing-game/)
 
 ---
 
