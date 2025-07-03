@@ -1,12 +1,4 @@
-# ⌨️ React Typing App
 
-![GitHub stars](https://img.shields.io/github/stars/dilshannirodha/React-Typing-App?style=social)
-![GitHub forks](https://img.shields.io/github/forks/dilshannirodha/React-Typing-App?style=social)
-![GitHub last commit](https://img.shields.io/github/last-commit/dilshannirodha/React-Typing-App?color=green)
-![GitHub issues](https://img.shields.io/github/issues/dilshannirodha/React-Typing-App)
-![GitHub pull requests](https://img.shields.io/github/issues-pr/dilshannirodha/React-Typing-App)
-
----
 
 ## 📋 Description
 
@@ -36,5 +28,6 @@ This app also includes a `.NET Web API` backend for user performance tracking an
 
 > You can add screenshots here (e.g., typing screen, results, etc.)
 ```markdown
-![Typing UI](screenshots/typing-ui.png)
-![Result Page](screenshots/result.png)
+![Typing Game UI](screenshots/typing-game.png)
+![Typing Test UI](screenshots/typing-test.png)
+
